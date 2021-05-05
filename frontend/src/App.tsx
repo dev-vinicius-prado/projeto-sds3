@@ -1,3 +1,4 @@
+import { Footer } from "components/Footer";
 import { NavBar } from "components/NavBar";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="container">
       Projeto SDS2 - DEV-SUPERIOR
     </div>
+    <Footer/>
     </>
   );
 }
