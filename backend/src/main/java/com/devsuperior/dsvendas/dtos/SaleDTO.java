@@ -8,8 +8,8 @@ import java.time.LocalDate;
 public class SaleDTO implements Serializable {
 
     private Long id;
-    private Integer visited;
-    private Integer deals;
+    private Long visited;
+    private Long deals;
     private Double amount;
     private LocalDate date;
 
@@ -18,7 +18,7 @@ public class SaleDTO implements Serializable {
     public SaleDTO() {
     }
 
-    public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO sellerDTO) {
+    public SaleDTO(Long id, Long visited, Long deals, Double amount, LocalDate date, SellerDTO sellerDTO) {
         this.id = id;
         this.visited = visited;
         this.deals = deals;
@@ -44,19 +44,19 @@ public class SaleDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getVisited() {
+    public Long getVisited() {
         return visited;
     }
 
-    public void setVisited(Integer visited) {
+    public void setVisited(Long visited) {
         this.visited = visited;
     }
 
-    public Integer getDeals() {
+    public Long getDeals() {
         return deals;
     }
 
-    public void setDeals(Integer deals) {
+    public void setDeals(Long deals) {
         this.deals = deals;
     }
 
