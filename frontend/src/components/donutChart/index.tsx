@@ -1,28 +1,30 @@
 import axios from 'axios'
-import { type } from 'os'
+import { useEffect, useState } from 'react'
 import Chart from 'react-apexcharts'
 import { SaleSum } from 'types/sale'
 import { BASE_URL } from 'utils/requests'
-
 type ChartData = {
   series: number[]
   labels: string[]
 }
 
 export const DonutChart = () => {
-  let chartData: ChartData = { labels: [], series: [] }
+  const [chartData, setChartData] = useState<ChartData>({
+    labels: [],
+    series: [],
+  })
 
-  axios
-    .get(`${BASE_URL}/sales/amount-by-seller`)
-    .then((response) => {
-      const data = response.data as SaleSum[]
-      const labels = data.map((s) => s.sellerName)
-      const series = data.map((s) => s.sum)
-      chartData = { labels, series }
-      console.log(chartData);
-      
-    })
-    .catch((err) => console.error(err))
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/sales/amount-by-seller`)
+      .then((response) => {
+        const data = response.data as SaleSum[]
+        const labels = data.map((s) => s.sellerName)
+        const series = data.map((s) => s.sum)
+        setChartData({ labels, series })
+      })
+      .catch((err) => console.error(err))
+  }, [setChartData])
 
   const options = {
     legend: {
