@@ -20,9 +20,9 @@ public class SaleSuccessDTO implements Serializable {
     }
 
     public SaleSuccessDTO(Seller seller, Long visited, Long deals) {
-        sellerName = seller.getName();
-        visited = visited;
-        deals = deals;
+        this.sellerName = seller.getName();
+        this.visited = visited;
+        this.deals = deals;
     }
 
     public String getSellerName() {
